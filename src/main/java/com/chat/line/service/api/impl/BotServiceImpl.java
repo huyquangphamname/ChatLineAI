@@ -5,6 +5,7 @@ import com.chat.line.model.entity.ChatMessage;
 import com.chat.line.service.api.BotService;
 import com.chat.line.service.api.ChatGptService;
 import com.chat.line.service.helper.ChatGptHelper;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.linecorp.bot.client.base.BlobContent;
 import com.linecorp.bot.client.base.Result;
 import com.linecorp.bot.messaging.client.MessagingApiClient;
@@ -35,7 +36,8 @@ public class BotServiceImpl implements BotService {
   private final ChatGptService chatGptService;
 
   @Override
-  public void handleTextContent(String replyToken, MessageEvent event, TextMessageContent content) {
+  public void handleTextContent(String replyToken, MessageEvent event, TextMessageContent content)
+      throws JsonProcessingException {
     ChatMessage userMessage = ChatGptHelper.constructMessage(RoleNames.USER, content.text());
     ChatMessage message = this.chatGptService
         .chat(ChatGptHelper.constructCompletionsRequest("gpt-4", singletonList(userMessage)));

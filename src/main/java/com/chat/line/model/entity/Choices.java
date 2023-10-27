@@ -18,5 +18,5 @@ public class Choices implements Serializable {
   private static final long serialVersionUID = 7697021680818751547L;
 
   private String index;
-  private ChatMessage messages;
+  private ChatMessage message;
 }

@@ -4,11 +4,14 @@ import com.chat.line.model.entity.ChatCompletionsRequest;
 import com.chat.line.model.entity.ChatCompletionsResponse;
 import com.chat.line.model.entity.ChatMessage;
 import com.chat.line.service.api.ChatGptService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -27,15 +30,16 @@ public class ChatGptServiceImpl implements ChatGptService {
   private String apiKey;
 
   private final RestTemplate restTemplate;
+  private final ObjectMapper objectMapper;
 
   @Override
-  public ChatMessage chat(ChatCompletionsRequest request) {
+  public ChatMessage chat(ChatCompletionsRequest request) throws JsonProcessingException {
     HttpHeaders headers = this.constructHeaders();
 
     HttpEntity<ChatCompletionsRequest> entity = new HttpEntity<>(request, headers);
 
-    ResponseEntity<ChatCompletionsResponse> response = restTemplate
-        .exchange(this.getCompletionsUrl(), HttpMethod.POST, entity, ChatCompletionsResponse.class);
+    ResponseEntity<String> response =
+        restTemplate.exchange(this.getCompletionsUrl(), HttpMethod.POST, entity, String.class);
 
     if (response.getStatusCode().is2xxSuccessful()) {
       return this.getMessageFromResponse(response);
@@ -44,14 +48,18 @@ public class ChatGptServiceImpl implements ChatGptService {
     }
   }
 
-  private ChatMessage getMessageFromResponse(ResponseEntity<ChatCompletionsResponse> response) {
-    return response.getBody().getChoices().get(0).getMessages();
+  private ChatMessage getMessageFromResponse(ResponseEntity<String> response)
+      throws JsonProcessingException {
+    ChatCompletionsResponse chatCompletionsResponse =
+        objectMapper.readValue(response.getBody(), ChatCompletionsResponse.class);
+
+    return chatCompletionsResponse.getChoices().get(0).getMessage();
   }
 
   private HttpHeaders constructHeaders() {
     HttpHeaders headers = new HttpHeaders();
-    headers.add("Authorization", "Bearer " + this.apiKey);
-    headers.add("Content-Type", "application/json");
+    headers.setBearerAuth(this.apiKey);
+    headers.setContentType(MediaType.APPLICATION_JSON);
     return headers;
   }
 
