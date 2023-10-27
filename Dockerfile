@@ -6,7 +6,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Use the official OpenJDK image as the base image.
-FROM openjdk:17-jre-slim
+FROM openjdk:17-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/*.jar line-0.0.1-SNAPSHOT.jar
 
