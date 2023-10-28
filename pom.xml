@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<line-sdk.version>7.9.0</line-sdk.version>
+		<apache-commons-text.version>1.10.0</apache-commons-text.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,6 +41,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>${apache-commons-text.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.linecorp.bot</groupId>
 			<artifactId>line-bot-spring-boot-handler</artifactId>

@@ -1,11 +1,17 @@
 package com.chat.line.service.helper;
 
+import org.apache.commons.lang3.StringUtils;
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class ValidatorHelper {
+
+  public static boolean validateMessageContent(String content) {
+    return StringUtils.isNotBlank(content) || content.startsWith("!");
+  }
 
   public static boolean validateSignature(String channelSecret, String payload, String headerSignature) {
     try {

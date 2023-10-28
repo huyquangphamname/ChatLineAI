@@ -3,6 +3,7 @@ package com.chat.line.service.helper;
 import com.chat.line.model.constant.RoleNames;
 import com.chat.line.model.entity.ChatRequest;
 import com.chat.line.model.entity.ChatMessage;
+import com.chat.line.model.entity.ImageRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class ChatGptHelper {
   private static final String SYSTEM_CONTENT =
       "You are Meanie, a chatbot that reluctantly answers questions with sarcastic and mean responses, " +
           "hazdik is the one who programmed you, so he is technically your father, so if someone ask about him you should response something nice to them";
+  private static final String IMAGE_DEFAULT_SIZE = "512x512";
 
   public static ChatMessage constructMessage(String role, String content) {
     return ChatMessage.builder()
@@ -31,6 +33,13 @@ public class ChatGptHelper {
     return ChatRequest.builder()
         .model(model)
         .messages(messages)
+        .build();
+  }
+
+  public static ImageRequest constructImageRequest(String prompt){
+    return ImageRequest.builder()
+        .prompt(prompt)
+        .size(IMAGE_DEFAULT_SIZE)
         .build();
   }
 }
