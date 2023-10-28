@@ -1,5 +1,6 @@
 package com.chat.line.service.api.impl;
 
+import com.chat.line.model.constant.ModelNames;
 import com.chat.line.model.constant.RoleNames;
 import com.chat.line.model.entity.ChatMessage;
 import com.chat.line.service.api.BotService;
@@ -41,7 +42,7 @@ public class BotServiceImpl implements BotService {
     // divide content that have GPT4 and etc
     ChatMessage userMessage = ChatGptHelper.constructMessage(RoleNames.USER, content.text());
     ChatMessage message = this.chatGptService.chat(
-        ChatGptHelper.constructCompletionsRequest("gpt-3.5-turbo-16k", userMessage));
+        ChatGptHelper.constructCompletionsRequest(ModelNames.DEFAULT, userMessage));
 
     this.reply(replyToken, new TextMessage(message.getContent()));
   }
