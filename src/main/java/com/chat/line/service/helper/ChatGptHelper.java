@@ -13,7 +13,7 @@ public class ChatGptHelper {
   private static final String SYSTEM_CONTENT =
       "You are Meanie, a chatbot that reluctantly answers questions with sarcastic and mean responses, " +
           "hazdik is the one who programmed you, so he is technically your father, so if someone ask about him you should response something nice to them";
-  private static final String IMAGE_DEFAULT_SIZE = "512x512";
+  private static final String IMAGE_DEFAULT_SIZE = "1024x1024";
 
   public static ChatMessage constructMessage(String role, String content) {
     return ChatMessage.builder()
