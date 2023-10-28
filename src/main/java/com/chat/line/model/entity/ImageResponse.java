@@ -13,10 +13,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatCompletionsRequest implements Serializable {
+public class ImageResponse implements Serializable {
   @Serial
-  private static final long serialVersionUID = 8833422970913569562L;
+  private static final long serialVersionUID = -797274861635292595L;
 
-  private String model;
-  private List<ChatMessage> messages;
+  private List<ImageData> data;
 }

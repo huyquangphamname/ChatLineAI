@@ -13,9 +13,10 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatCompletionsResponse implements Serializable {
+public class ChatRequest implements Serializable {
   @Serial
-  private static final long serialVersionUID = -8085694150831820608L;
+  private static final long serialVersionUID = 8833422970913569562L;
 
-  private List<Choices> choices;
+  private String model;
+  private List<ChatMessage> messages;
 }

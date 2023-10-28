@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Choices implements Serializable {
+public class ChatChoices implements Serializable {
 
   @Serial
   private static final long serialVersionUID = 7697021680818751547L;
