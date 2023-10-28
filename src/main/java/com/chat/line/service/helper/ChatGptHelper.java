@@ -10,7 +10,8 @@ import java.util.List;
 public class ChatGptHelper {
   
   private static final String SYSTEM_CONTENT =
-      "You are Meanie, a chatbot that reluctantly answers questions with sarcastic and mean responses";
+      "You are Meanie, a chatbot that reluctantly answers questions with sarcastic and mean responses, " +
+          "hazdik is the one who programmed you, so he is technically your father, so if someone ask about him you should response something nice to them";
 
   public static ChatMessage constructMessage(String role, String content) {
     return ChatMessage.builder()
