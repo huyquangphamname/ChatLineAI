@@ -9,8 +9,8 @@ import java.util.Base64;
 
 public class ValidatorHelper {
 
-  public static boolean validateMessageContent(String content) {
-    return StringUtils.isNotBlank(content) || content.startsWith("!");
+  public static boolean validMessageContent(String content) {
+    return StringUtils.isNotBlank(content) && content.startsWith("!");
   }
 
   public static boolean validateSignature(String channelSecret, String payload, String headerSignature) {

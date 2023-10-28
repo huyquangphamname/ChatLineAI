@@ -23,7 +23,7 @@ public class LineBotController {
   @EventMapping
   public void handleTextMessageEvent(MessageEvent event, TextMessageContent textMessageContent)
       throws Exception {
-    if (ValidatorHelper.validateMessageContent(textMessageContent.text())) {
+    if (ValidatorHelper.validMessageContent(textMessageContent.text())) {
       this.botService.handleTextContent(event.replyToken(), event, textMessageContent);
     }
     log.info("#handleTextMessageEvent called with event: {}, and content: {}", event,
