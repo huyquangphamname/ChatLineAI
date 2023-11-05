@@ -5,7 +5,7 @@ import com.chat.line.model.constant.RoleNames;
 import com.chat.line.model.entity.ChatMessage;
 import com.chat.line.model.entity.ImageData;
 import com.chat.line.model.entity.ImageRequest;
-import com.chat.line.model.entity.ImageResponse;
+// import com.chat.line.model.entity.ImageResponse;
 import com.chat.line.model.enums.PromptType;
 import com.chat.line.service.api.BotService;
 import com.chat.line.service.api.ChatGptService;
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Collections;
+// import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
