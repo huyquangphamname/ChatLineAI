@@ -1,6 +1,7 @@
 logs/
 main.log
 *.log
+bin/
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
