@@ -7,7 +7,7 @@ app.use(cors())
 
 const API_KEY = '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'
 
-app.post('/completions', (req, res) => {
+app.post('/completions', async (req, res) => {
   const options = {
         method: "POST",
         headers: {
@@ -21,9 +21,11 @@ app.post('/completions', (req, res) => {
         })
     }
     try{
-        fetch('https://api.openai.com/v1/chat/completions', options)
+        const response = await fetch('https://api.openai.com/v1/chat/completions', options)
+        const data = await response.json()
+        res.send(data)
     } catch (error) {
-        console.log(error)
+        console.error(error)
     } 
 })
 
