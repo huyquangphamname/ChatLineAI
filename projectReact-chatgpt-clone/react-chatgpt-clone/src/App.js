@@ -3,7 +3,9 @@ const App = () => {
     <div className="app">
       <section className="side-bar">
         <button>+ New chat</button>
-        <ul className="history"></ul>
+        <ul className="history">
+          <li> BBBBBBB</li>
+        </ul>
         <nav>
           <p>Make by App</p>
           </nav>
@@ -12,8 +14,7 @@ const App = () => {
       <section className="main">
         <h1>ChatGPT</h1>
         <ul className="feed">
-
-
+          
         </ul>
         <div className="bottom-section">
           <div className="input-container">
