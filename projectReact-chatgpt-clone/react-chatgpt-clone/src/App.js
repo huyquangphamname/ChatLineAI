@@ -21,7 +21,7 @@ const App = () => {
             <input/>
             <div id="submit">➢</div>
           </div>
-          <p className="Info">
+          <p className="info">
             ChatGPT is a chatbot that uses the GPT-3 API to generate responses to your messages.
             Our goal is to make AI systems more natural and safe to interact with.
             Your feedback is greatly appreciated!
