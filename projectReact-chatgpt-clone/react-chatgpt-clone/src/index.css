@@ -12,6 +12,7 @@ body {
 
 .app{
     background-color: #343541;
+    display: flex;
 }
 
 .side-bar {
@@ -51,4 +52,16 @@ nav {
 .main  {
     height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }
+
+.info {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    padding: 10px;
+    
+}   
