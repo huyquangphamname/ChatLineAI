@@ -6,7 +6,7 @@ const App = () => {
         message: "Hello, how are you?"
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       }
     }
     try {
