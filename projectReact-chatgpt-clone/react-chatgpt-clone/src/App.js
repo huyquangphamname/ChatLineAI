@@ -34,7 +34,7 @@ const App = () => {
       </section>
         
       <section className="main">
-        <h1>ChatGPT</h1>
+        <h1>AniaGPT</h1>
         <ul className="feed">
           
         </ul>

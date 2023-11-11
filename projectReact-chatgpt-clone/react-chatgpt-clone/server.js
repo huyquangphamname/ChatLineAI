@@ -25,6 +25,7 @@ app.post('/completions', async (req, res) => {
             ],
             max_tokens: 150,
         })
+        
     }
     try{
         const response = await fetch('https://api.openai.com/v1/chat/completions', options)
