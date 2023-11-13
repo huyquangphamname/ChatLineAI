@@ -1,4 +1,5 @@
 const App = () => {
+  const [ value, setValue ] = useState(null)
   const getMessages = async () => {
     const options ={
       method: "POST",
@@ -20,6 +21,7 @@ const App = () => {
 
   }
 
+  console.log(value)
 
   return (
     <div className="app">
@@ -40,7 +42,7 @@ const App = () => {
         </ul>
         <div className="bottom-section">
           <div className="input-container">
-            <input/>
+            <input value = {value} onChange = {(e) => setValue(e.target.value)}/>
             <div id="submit" onClick={getMessages}>➢</div>
           </div>
           <p className="info">
