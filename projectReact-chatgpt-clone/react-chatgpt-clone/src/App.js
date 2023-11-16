@@ -19,6 +19,10 @@ const App = () => {
    * 
    * @returns {Promise<void>} A promise that resolves when the messages are fetched.
    */
+  const handleClick = (uniqueTitle) => {
+    setCurrentTitle(uniqueTitle)
+  }
+
   const getMessages = async () => {
     const options = {
       method: "POST",
@@ -75,7 +79,7 @@ const App = () => {
       <section className="side-bar">
         <button onClick={createNewChat}>+ New chat</button>
         <ul className="history">
-          {uniqueTitle?.map((uniqueTitle, index) => <li key={index}> {uniqueTitle}</li>)}
+          {uniqueTitle?.map((uniqueTitle, index) => <li key={index} onClick={()=>handleClick(uniqueTitle)}> {uniqueTitle}</li>)}
         </ul>
         <nav>
           <p>Make by App</p>
