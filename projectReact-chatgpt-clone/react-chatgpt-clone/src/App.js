@@ -48,7 +48,7 @@ const App = () => {
     }
     if (currentTitle && value && message) {
       setPreviousMessages(prevChats => (
-        [...prevChats, 
+        [...prevChats,
           {
             title: currentTitle,
             role: "user",
@@ -67,13 +67,15 @@ const App = () => {
     console.log(previousChats)
 
     const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle)
+    const uniqueTitle = Array.from(new Set(previousChats.map(previousChat => previousChat.title)))
+    console.log(uniqueTitle)
 
   return (
     <div className="app">
       <section className="side-bar">
         <button onClick={createNewChat}>+ New chat</button>
         <ul className="history">
-          <li> BBBBBBB</li>
+          {uniqueTitle?.map((uniqueTitle, index) => <li key={index}> {uniqueTitle}</li>)}
         </ul>
         <nav>
           <p>Make by App</p>
