@@ -29,7 +29,7 @@ app.post('/completions', async (req, res) => {
         
     }
     try{
-        const response = await fetch('https://api.openai.com/v1/chat/completions', options)
+        const response = await fetch('POST https://line-gpt-app-ogcot.ondigitalocean.app/chat', options)
         const data = await response.json()
         res.send(data)
     } catch (error) {
