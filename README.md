@@ -69,21 +69,35 @@ ChatLineAI is built on a robust architecture comprising three key components:
 
 ---
 
+## New Features in v1.1.0
+- **React-based UI**: Users can now interact with the system in real-time, previewing dynamically generated ads before they are finalized.
+- **Performance Improvements**: Enhanced keyword extraction and improved ad coherence for conversations with high keyword density.
+- **Bug Fixes**: Fixed issues related to keyword prioritization and optimized Java HashMap operations.
+
+---
+
 ### **How to Run the Project**
 
 1. Clone the repository from GitHub:
    ```bash
    git clone https://github.com/huyquangphamname/ChatLineAI.git
-2. Set up the required dependencies:
+2. Install additional dependencies (for React UI):
+     ```bash
+   cd projectReact-chatgpt-clone
+   npm install
+   npm start
+3. Set up the required dependencies:
 
 - Java (Spring Boot)
 - Apache NLP
 - Feign for API integration
-3. Run the application using your favorite Java IDE or terminal:
-     ```bash
-     ./mvnw spring-boot:run
-4. Ensure the Line Bot is set up and connected to your Line developer account for user interaction.
-5. Test the system by initiating a conversation through the Line Bot interface and observe the dynamically generated advertisements based on user inputs.
+
+4. Run the back end:
+   ```bash
+   mvn spring-boot:run
+5. Access the application at http://localhost:3000 for the React UI and http://localhost:8080 for the backend.
+6. Ensure the Line Bot is set up and connected to your Line developer account for user interaction.
+7. Test the system by initiating a conversation through the Line Bot interface and observe the dynamically generated advertisements based on user inputs.
 
 ---
 
